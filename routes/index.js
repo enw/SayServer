@@ -10,9 +10,11 @@ res.render('index', { title: 'Express' })
 exports.say = function(req, res){
   var what = req.query.what;
   if (!what) {
-    say.speak ("Alex", "say what?");
+    // say.speak ("Alex", "say what?");
   } else {
-    say.speak ("Alex", what);
+    // say.speak ("Cellos", what);
+    // say.speak ("Alex", what.replace("frog", "swag"));
+    say.speak ("Alex", what + ". swag.");
   }
   res.render('speech', { title: 'Speech' })
 };
