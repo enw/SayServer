@@ -1,0 +1,9 @@
+h1= title
+p I am speaking to #{title}
+form(name="input", action="", method="get")
+  input(type="text", name="what", id="what")
+  input(type="submit", value="Submit")
+script(type="text/javascript")
+  window.onload = function () { document.getElementById("what").focus();}
+    
+  
