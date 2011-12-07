@@ -39,8 +39,7 @@ io.sockets.on("connection", function ( socket ) {
 })
 
 // Routes
-app.get('/', routes.say);
-app.get('/say', routes.say);
+app.get('*', routes.say);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
