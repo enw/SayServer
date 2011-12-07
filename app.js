@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , sio = require('socket.io')
   , say = require('say')
+  , config = require('config')
 
 var app = module.exports = express.createServer();
 
@@ -31,11 +32,11 @@ app.configure('production', function(){
 // socket.io
 var io = sio.listen(app);
 io.sockets.on("connection", function ( socket ) {
-  // console.log("connection");
+  // console.log("connection");  
   socket.on("user message", function(msg) {
+    if (config.swagOn && Math.random()<(config.swagPct)/100) msg+=". swag.";
     say.speak ("Alex", msg);    
   })
-  
 })
 
 // Routes
