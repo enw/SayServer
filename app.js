@@ -5,6 +5,7 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , sio = require('socket.io')
 
 var app = module.exports = express.createServer();
 
