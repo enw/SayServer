@@ -35,7 +35,7 @@ io.sockets.on("connection", function ( socket ) {
   // console.log("connection");  
   socket.on("user message", function(msg) {
     if (config.swagOn && Math.random()<(config.swagPct)/100) msg+=". swag.";
-    say.speak ("Alex", msg);    
+    say.speak (msg.voice, msg.message);    
   })
 })
 

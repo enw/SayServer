@@ -11,8 +11,10 @@ script(type="text/javascript")
     };
     
     $('#send-message').submit(function(ev){
-        var msg = $('#message').val();
-        //console.log("submit", msg);
+        var msg = {
+            message: $('#message').val()
+            , voice: $('#voice').val()
+        }
         clear();
         socket.emit("user message", msg);
         return false; // why?
@@ -20,4 +22,29 @@ script(type="text/javascript")
   })  
 form.wrap#send-message
   input#message  
+  select#voice
+      option(value="Agnes") Agnes
+      option(value="Kathy") Kathy
+      option(value="Princess") Princess
+      option(value="Vicki") Vicki
+      option(value="Victoria") Victoria
+      option(value="Albert") Albert
+      option(value="Alex") Alex
+      option(value="Bruce") Bruce
+      option(value="Fred") Fred
+      option(value="Junior") Junior
+      option(value="Ralph") Ralph
+      option(value="Bad News") Bad News
+      option(value="Bahh") Bahh
+      option(value="Bells") Bells
+      option(value="Boing") Boing
+      option(value="Bubbles") Bubbles
+      option(value="Cellos") Cellos
+      option(value="Deranged") Deranged
+      option(value="Good News") Good News
+      option(value="Hysterical") Hysterical
+      option(value="Pipe Organ") Pipe Organ
+      option(value="Trinoids") Trinoids
+      option(value="Whisper") Whisper
+      option(value="Zarvox") Zarvox    
   button Send
