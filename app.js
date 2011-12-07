@@ -33,7 +33,7 @@ var io = sio.listen(app);
 io.sockets.on("connection", function ( socket ) {
   // console.log("connection");
   socket.on("user message", function(msg) {
-    say.speak ("Alex", msg + ". swag.");    
+    say.speak ("Alex", msg);    
   })
   
 })
