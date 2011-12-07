@@ -15,6 +15,7 @@ exports.say = function(req, res){
     // say.speak ("Cellos", what);
     // say.speak ("Alex", what.replace("frog", "swag"));
     say.speak ("Alex", what + ". swag.");
+    console.log("say",what);
   }
   res.render('speech', { title: 'Speech' })
 };
