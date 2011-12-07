@@ -6,11 +6,11 @@
 var express = require('express')
   , routes = require('./routes')
   , sio = require('socket.io')
+  , say = require('say')
 
 var app = module.exports = express.createServer();
 
 // Configuration
-
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
@@ -27,6 +27,16 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
+
+// socket.io
+var io = sio.listen(app);
+io.sockets.on("connection", function ( socket ) {
+  // console.log("connection");
+  socket.on("user message", function(msg) {
+    say.speak ("Alex", msg + ". swag.");    
+  })
+  
+})
 
 // Routes
 app.get('/', routes.say);

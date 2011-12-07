@@ -1,9 +1,23 @@
 h1= title
 p I am speaking to #{title}
-form(name="input", action="", method="get")
-  input(type="text", name="what", id="what")
-  input(type="submit", value="Submit")
 script(type="text/javascript")
-  window.onload = function () { document.getElementById("what").focus();}
-    
+  socket.on('connect', function () {
+    console.log("socket", socket);
+  });
   
+  $(function() {
+    function clear () {
+      $('#message').val('').focus();
+    };
+    
+    $('#send-message').submit(function(ev){
+        var msg = $('#message').val();
+        //console.log("submit", msg);
+        clear();
+        socket.emit("user message", msg);
+        return false; // why?
+    })
+  })  
+form.wrap#send-message
+  input#message  
+  button Send
